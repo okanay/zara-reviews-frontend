@@ -3,21 +3,21 @@ import { motion } from "framer-motion";
 
 const CONFIG = {
   ANIMATION: {
-    DURATION: 0.8,
-    BASE_DELAY: 0.65,
-    STEP_DELAY: 0.065,
+    DURATION: 1.15,
+    BASE_DELAY: 0.825,
+    STEP_DELAY: 0.055,
   },
   STYLE: {
     INITIAL: {
-      y: "100%",
+      y: "200%",
       color: "rgba(0,0,0)",
-      filter: "blur(12px)",
-      scale: 1.35,
+      filter: "blur(6px) contrast(10%) brightness(10%)",
+      scale: 1.15,
     },
     FINAL: {
       y: 0,
       color: "rgba(255,255,255)",
-      filter: "blur(0px)",
+      filter: "blur(0px) contrast(100%) brightness(100%)",
       scale: 1,
     },
   },

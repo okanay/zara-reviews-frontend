@@ -14,17 +14,16 @@ export const ImageSlider = () => {
     <AnimatePresence>
       <section className="fixed left-0 top-0 z-20 flex h-screen w-full items-center justify-center overflow-hidden">
         <motion.div
+          initial={{ filter: "blur(0px)", opacity: 0 }}
           animate={{
             opacity: [1, 0],
-            filter: "blur(2px)",
-            y: "-135%",
-            zoom: "125%",
+            filter: "blur(1.3px) contrast(10%) brightness(10%)",
+            y: "-100%",
           }}
           transition={{
-            y: { delay: 0.75, ease: "easeInOut", duration: 0.65 },
-            opacity: { delay: 0.65, ease: "easeInOut", duration: 0.65 },
-            zoom: { delay: 0.65, ease: "easeInOut", duration: 0.1 },
-            blur: { delay: 0.1, ease: "easeInOut", duration: 0.65 },
+            y: { delay: 0.9, ease: "easeInOut", duration: 0.65 },
+            opacity: { delay: 0.9, ease: "easeInOut", duration: 0.65 },
+            filter: { delay: 0.25, ease: "linear", duration: 1 },
           }}
           className="h-full w-full bg-gray-200"
         >
@@ -39,17 +38,16 @@ export const ImageSlider = () => {
           />
         </motion.div>
         <motion.div
+          initial={{ filter: "blur(0px)", opacity: 0 }}
           animate={{
             opacity: [1, 0],
-            filter: "blur(2px)",
-            y: "-135%",
-            zoom: "125%",
+            filter: "blur(1.3px) contrast(10%) brightness(10%)",
+            y: "-100%",
           }}
           transition={{
-            y: { delay: 0.8, ease: "easeInOut", duration: 0.65 },
-            opacity: { delay: 0.65, ease: "easeInOut", duration: 0.65 },
-            zoom: { delay: 0.65, ease: "easeInOut", duration: 0.1 },
-            blur: { delay: 0.1, ease: "easeInOut", duration: 0.65 },
+            y: { delay: 1, ease: "easeInOut", duration: 0.65 },
+            opacity: { delay: 0.9, ease: "easeInOut", duration: 0.65 },
+            filter: { delay: 0.25, ease: "linear", duration: 1 },
           }}
           className="h-full w-full bg-gray-200"
         >
@@ -64,22 +62,26 @@ export const ImageSlider = () => {
           />
         </motion.div>
         <motion.div
-          initial={{ width: "0%", filter: "blur(2px)", opacity: 0 }}
+          initial={{
+            width: "0%",
+            filter: "blur(2px) contrast(50%) brightness(50%)",
+            opacity: 0,
+          }}
           animate={{
             width: "var(--width-to)",
-            filter: "blur(0px)",
+            filter: "blur(0px) contrast(100%) brightness(100%)",
             opacity: [0, 1],
             y: "-135%",
             zoom: "125%",
           }}
           transition={{
-            y: { delay: 0.92, ease: "easeInOut", duration: 0.65 },
+            y: { delay: 1.1, ease: "easeInOut", duration: 0.65 },
             width: { delay: 0.15, ease: "easeInOut", duration: 0.65 },
             opacity: { delay: 0.3, ease: "easeInOut", duration: 0.65 },
             zoom: { delay: 0.65, ease: "easeInOut", duration: 0.1 },
-            blur: { delay: 0.4, ease: "easeInOut", duration: 0.65 },
+            filter: { delay: 0.25, ease: "linear", duration: 1 },
           }}
-          className="h-full flex-shrink-0 bg-gray-400 object-right [--width-to:65%] sm:[--width-to:50%]"
+          className="h-full flex-shrink-0 bg-gray-400 object-right [--width-to:75%] sm:[--width-to:55%]"
         >
           <Image
             src={Image2}
@@ -92,17 +94,17 @@ export const ImageSlider = () => {
           />
         </motion.div>
         <motion.div
+          initial={{ filter: "blur(0px)", opacity: 0 }}
           animate={{
             opacity: [1, 0],
-            filter: "blur(2px)",
-            y: "-135%",
-            zoom: "125%",
+            filter: "blur(1.3px) contrast(10%) brightness(10%)",
+            y: "-100%",
           }}
           transition={{
-            y: { delay: 0.8, ease: "easeInOut", duration: 0.65 },
-            opacity: { delay: 0.65, ease: "easeInOut", duration: 0.65 },
+            y: { delay: 1, ease: "easeInOut", duration: 0.65 },
+            opacity: { delay: 0.9, ease: "easeInOut", duration: 0.65 },
             zoom: { delay: 0.65, ease: "easeInOut", duration: 0.1 },
-            blur: { delay: 0.1, ease: "easeInOut", duration: 0.65 },
+            filter: { delay: 0.25, ease: "linear", duration: 1 },
           }}
           className="h-full w-full bg-gray-200"
         >
@@ -117,17 +119,17 @@ export const ImageSlider = () => {
           />
         </motion.div>
         <motion.div
+          initial={{ filter: "blur(0px)", opacity: 0 }}
           animate={{
             opacity: [1, 0],
-            filter: "blur(2px)",
-            y: "-135%",
-            zoom: "125%",
+            filter: "blur(1.3px) contrast(10%) brightness(10%)",
+            y: "-100%",
           }}
           transition={{
-            y: { delay: 0.75, ease: "easeInOut", duration: 0.65 },
-            opacity: { delay: 0.65, ease: "easeInOut", duration: 0.65 },
+            y: { delay: 0.9, ease: "easeInOut", duration: 0.65 },
+            opacity: { delay: 0.9, ease: "easeInOut", duration: 0.65 },
             zoom: { delay: 0.65, ease: "easeInOut", duration: 0.1 },
-            blur: { delay: 0.1, ease: "easeInOut", duration: 0.65 },
+            filter: { delay: 0.25, ease: "linear", duration: 1 },
           }}
           className="h-full w-full bg-gray-200"
         >
