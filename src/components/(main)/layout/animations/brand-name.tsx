@@ -5,14 +5,14 @@ const CONFIG = {
   ANIMATION: {
     DURATION: 0.8,
     BASE_DELAY: 0.65,
-    STEP_DELAY: 0.04,
+    STEP_DELAY: 0.065,
   },
   STYLE: {
     INITIAL: {
       y: "100%",
       color: "rgba(0,0,0)",
       filter: "blur(12px)",
-      scale: 1.5,
+      scale: 1.35,
     },
     FINAL: {
       y: 0,
@@ -44,17 +44,17 @@ const createTransition = (delay: number) => ({
   y: { duration: CONFIG.ANIMATION.DURATION, delay, ease: CONFIG.EASE },
   color: {
     duration: CONFIG.ANIMATION.DURATION,
-    delay: delay + 0.35,
+    delay: delay + 0.5,
     ease: CONFIG.EASE,
   },
   filter: {
     duration: CONFIG.ANIMATION.DURATION,
-    delay: delay + 0.25,
+    delay: delay + 0.35,
     ease: CONFIG.EASE,
   },
   scale: {
     duration: CONFIG.ANIMATION.DURATION,
-    delay: delay + 0.45,
+    delay: delay + 0.5,
     ease: CONFIG.EASE,
   },
 });
