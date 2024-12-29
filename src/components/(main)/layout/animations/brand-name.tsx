@@ -12,7 +12,7 @@ const CONFIG = {
       y: "100%",
       color: "rgba(0,0,0)",
       filter: "blur(12px)",
-      scale: 1.45,
+      scale: 1.5,
     },
     FINAL: {
       y: 0,
