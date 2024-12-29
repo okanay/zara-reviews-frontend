@@ -13,7 +13,7 @@ export const AnimationExitWrapper = ({ children }: AnimationWrapperProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 2150);
+    }, 2550);
 
     return () => clearTimeout(timer);
   }, []);

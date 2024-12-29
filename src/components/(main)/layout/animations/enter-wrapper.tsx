@@ -15,9 +15,8 @@ export const MainContentEnterWrapper = ({ children }: Props) => {
         pointerEvents: "auto",
       }}
       transition={{
-        duration: 0.5,
-        delay: 2.5,
-        pointerEvents: { delay: 2.35 }, // pointerEvents'in de delay'i olsun
+        duration: 0.35,
+        delay: 2.8,
       }}
       className="relative z-40 bg-white text-gray-800"
     >
