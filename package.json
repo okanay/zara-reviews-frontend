@@ -1,0 +1,38 @@
+{
+  "name": "zara-reviews",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "babel-plugin-react-compiler": "^19.0.0-beta-b2e8e9c-20241220",
+    "framer-motion": "^11.15.0",
+    "lucide-react": "^0.469.0",
+    "next": "15.1.3",
+    "next-themes": "^0.4.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.4.1",
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.6.0",
+    "zod": "^3.24.1",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@types/node": "^20.17.10",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "eslint-config-next": "15.1.3",
+    "@eslint/eslintrc": "^3.2.0"
+  }
+}
