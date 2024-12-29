@@ -58,10 +58,7 @@ const renderLetters = (text: string[]) => (
       const delay = calculateDelay(index, text.length);
 
       return (
-        <span
-          key={index}
-          className="relative overflow-hidden text-5xl tracking-widest sm:text-7xl"
-        >
+        <span key={index} className="relative overflow-hidden tracking-widest">
           <span className="invisible">{letter}</span>
           <motion.span
             initial={CONFIG.STYLE.INITIAL}
@@ -82,7 +79,7 @@ export const BrandName = () => {
   const nameDown = "REVIEWS".split("");
 
   return (
-    <div className="fixed left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center bg-white text-center text-7xl font-bold">
+    <div className="fixed left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center bg-white text-center text-6xl font-bold lg:text-7xl">
       {renderLetters(nameUp)}
       {renderLetters(nameDown)}
     </div>
