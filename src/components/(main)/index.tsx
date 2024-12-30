@@ -1,7 +1,9 @@
+import { SearchInput } from "./search-input.tsx";
+
 const IndexPage = () => {
   return (
-    <main className="relative">
-      <button>Content Eklenecek</button>
+    <main className="min-h-screen">
+      <SearchInput />
     </main>
   );
 };

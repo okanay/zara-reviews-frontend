@@ -4,6 +4,7 @@ import { ImageSlider } from "./animations/sliders";
 import { BrandName } from "./animations/brand-name";
 import { MainContentEnterWrapper } from "./animations/enter-wrapper";
 import { AnimationExitWrapper } from "./animations/exit-wrapper";
+import { AuroraBackground } from "../background";
 
 export default function MainLayout({ children }: LayoutProps) {
   return (
@@ -13,7 +14,8 @@ export default function MainLayout({ children }: LayoutProps) {
         <ImageSlider />
       </AnimationExitWrapper>
       <MainContentEnterWrapper>
-        <div className="flex min-h-svh flex-col justify-between">
+        <AuroraBackground />
+        <div className="relative z-10">
           <Header />
           {children}
           <Footer />
