@@ -1,10 +1,14 @@
 import { DragCloseDrawer } from "../globals/drag-close-modal";
+import { SearchInput } from "./search-input.tsx";
 
 const IndexPage = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <>
       <DragCloseDrawer>Content</DragCloseDrawer>
-    </main>
+      <main className="flex min-h-screen flex-col items-center justify-center">
+        <SearchInput />
+      </main>
+    </>
   );
 };
 

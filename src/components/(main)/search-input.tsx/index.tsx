@@ -35,7 +35,7 @@ export function SearchInput() {
   }, [debouncedSearch]);
 
   return (
-    <div className="flex w-[440px] flex-col gap-4">
+    <div className="flex w-full max-w-[440px] flex-col gap-4">
       <div className="relative">
         <Search className="absolute left-3 top-[16.5px] h-4 w-4 text-neutral-400" />
         <input
