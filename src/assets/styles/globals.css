@@ -51,6 +51,6 @@
   select,
   textarea,
   button {
-    @apply bg-transparent placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-950;
+    @apply bg-transparent placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-950;
   }
 }
