@@ -4,7 +4,7 @@ import { ImageSlider } from "./animations/sliders";
 import { BrandName } from "./animations/brand-name";
 import { MainContentEnterWrapper } from "./animations/enter-wrapper";
 import { AnimationExitWrapper } from "./animations/exit-wrapper";
-import { AuroraBackground } from "../background";
+import { AuroraBackground } from "./animations/background";
 
 export default function MainLayout({ children }: LayoutProps) {
   return (
