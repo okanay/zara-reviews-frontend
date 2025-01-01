@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply text-neutral-950;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    @apply bg-transparent placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-950;
+  }
+}
+
 :root {
   --primary-50: 246 247 247;
   --primary-100: 224 231 228;
@@ -41,16 +54,4 @@
 }
 
 .dark {
-}
-
-@layer base {
-  * {
-    @apply text-neutral-950;
-  }
-  input,
-  select,
-  textarea,
-  button {
-    @apply bg-transparent placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-950;
-  }
 }

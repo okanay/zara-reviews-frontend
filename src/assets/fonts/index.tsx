@@ -4,7 +4,7 @@ import React, { PropsWithChildren } from "react";
 
 const serif = Noto_Serif({
   subsets: ["latin-ext"],
-  weight: ["200", "400", "700"],
+  weight: ["100", "300", "500", "700"],
   fallback: ["serif"],
   variable: "--font-serif",
   preload: true,

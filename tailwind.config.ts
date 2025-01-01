@@ -24,8 +24,18 @@ export default {
       },
       animation: {
         aurora: "aurora 60s linear infinite",
+        rippling: "rippling 1s ease-out",
       },
       keyframes: {
+        rippling: {
+          "0%": {
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scale(2)",
+            opacity: "0",
+          },
+        },
         aurora: {
           from: {
             backgroundPosition: "50% 50%, 50% 50%",
