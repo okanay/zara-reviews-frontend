@@ -1,5 +1,6 @@
-import TestimonialCard, { DUMMY_TESTIMONIALS } from "./card";
+import TestimonialCard from "./card";
 import InfiniteScrollContainer from "./group";
+import { TESTIMONIALS } from "@/constants/testimonials";
 
 const Testimonials = () => {
   return (
@@ -12,13 +13,17 @@ const Testimonials = () => {
 };
 
 const TestimonialGroup = () => {
-  const shuffledTestimonials = [...DUMMY_TESTIMONIALS].sort(
+  const shuffledTestimonials = [...TESTIMONIALS].sort(
     () => Math.random() - 0.5,
   );
+
+  const currentTime = new Date().getTime();
+  const uniqueKey = (index: number) => `a${index}-${currentTime}`;
+
   return (
     <div className="flex gap-4">
       {shuffledTestimonials.map((item, index) => (
-        <TestimonialCard key={"a" + index} {...item} />
+        <TestimonialCard key={uniqueKey(index)} {...item} />
       ))}
     </div>
   );
@@ -34,7 +39,7 @@ const TestimonialScrollRight = () => {
         width: 440,
         gap: 16,
         duration: 160,
-        cardsPerGroup: DUMMY_TESTIMONIALS.length,
+        cardsPerGroup: TESTIMONIALS.length,
       }}
     />
   );
@@ -50,7 +55,7 @@ const TestimonialScrollLeft = () => {
         width: 440,
         gap: 16,
         duration: 160,
-        cardsPerGroup: DUMMY_TESTIMONIALS.length,
+        cardsPerGroup: TESTIMONIALS.length,
       }}
     />
   );
