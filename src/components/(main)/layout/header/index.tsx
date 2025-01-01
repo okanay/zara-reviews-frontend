@@ -45,7 +45,7 @@ const Header = () => {
           ))}
         </ul>
 
-        <RippleButton className="border-neutral-500 from-neutral-100 to-neutral-50 shadow shadow-neutral-300">
+        <RippleButton className="h-10 border-neutral-500 from-neutral-100 to-neutral-50 px-4 shadow shadow-neutral-300 sm:h-12 sm:px-6">
           Get Started
         </RippleButton>
       </nav>

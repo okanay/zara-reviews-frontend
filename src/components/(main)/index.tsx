@@ -6,7 +6,7 @@ import TestimonialCard, { DUMMY_TESTIMONIAL } from "./testimonials/card";
 
 const IndexPage = () => {
   return (
-    <main className="pt-44">
+    <main className="pt-32 sm:pt-44">
       <HeroSection />
 
       <div className="relative mt-16 flex max-w-[100vw] flex-col gap-4 overflow-hidden sm:mt-24">
@@ -76,7 +76,7 @@ const TestimonialScrollRight = () => {
         group: <TestimonialGroup />,
         width: 440,
         gap: 16,
-        duration: 45,
+        duration: 60,
         cardsPerGroup: 5,
       }}
     />
@@ -92,7 +92,7 @@ const TestimonialScrollLeft = () => {
         group: <TestimonialGroup />,
         width: 440,
         gap: 16,
-        duration: 45,
+        duration: 60,
         cardsPerGroup: 5,
       }}
     />
