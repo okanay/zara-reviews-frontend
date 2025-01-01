@@ -56,7 +56,7 @@ const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
     return (
       <button
         className={twMerge(
-          "relative flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-surface-50 bg-gradient-to-tl from-neutral-800 to-neutral-600 px-5 text-center transition-all duration-300 ease-in-out focus:outline-none focus:ring-1 focus:ring-primary-500 focus:ring-opacity-50 active:scale-95 active:bg-primary-600",
+          "relative flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-neutral-100 bg-gradient-to-tl from-primary-400 to-primary-500 px-5 text-center transition-all duration-300 ease-in-out focus:outline-none focus:ring-1 focus:ring-primary-500 focus:ring-opacity-50 active:scale-95 active:bg-primary-600",
           className,
         )}
         onClick={handleClick}
@@ -69,7 +69,7 @@ const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
         <span className="pointer-events-none absolute inset-0">
           {buttonRipples.map((ripple) => (
             <span
-              className="animate-rippling absolute rounded-full opacity-30"
+              className="absolute animate-rippling rounded-full opacity-30"
               key={ripple.key}
               style={{
                 width: `${ripple.size}px`,

@@ -36,7 +36,10 @@ const Header = () => {
             <span className="text-3xl uppercase">Reviews</span>
           </Link>
           {links.map((link) => (
-            <li key={link.name} className="text-sm tracking-wide">
+            <li
+              key={link.name}
+              className="hidden text-sm tracking-wide sm:block"
+            >
               <Link href={link.href}>{link.name}</Link>
             </li>
           ))}
