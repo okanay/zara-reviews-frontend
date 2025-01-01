@@ -1,9 +1,9 @@
-import TestimonialCard, { DUMMY_TESTIMONIAL } from "./card";
+import TestimonialCard, { DUMMY_TESTIMONIALS } from "./card";
 import InfiniteScrollContainer from "./group";
 
 const Testimonials = () => {
   return (
-    <div className="relative mt-16 flex max-w-[100vw] flex-col gap-4 overflow-hidden sm:mt-24">
+    <div className="relative mt-20 flex max-w-[100vw] flex-col gap-4 overflow-hidden">
       <TestimonialScrollRight />
       <TestimonialScrollLeft />
       <TestimonialScrollRight />
@@ -12,22 +12,29 @@ const Testimonials = () => {
 };
 
 const TestimonialGroup = () => {
-  return [...Array(5)].map((_, index) => (
-    <TestimonialCard key={index} {...DUMMY_TESTIMONIAL} />
-  ));
+  const shuffledTestimonials = [...DUMMY_TESTIMONIALS].sort(
+    () => Math.random() - 0.5,
+  );
+  return (
+    <div className="flex gap-4">
+      {shuffledTestimonials.map((item, index) => (
+        <TestimonialCard key={"a" + index} {...item} />
+      ))}
+    </div>
+  );
 };
 
 const TestimonialScrollRight = () => {
   return (
     <InfiniteScrollContainer
       rotation="Right"
-      copyGroupCount={2}
+      copyGroupCount={1}
       element={{
         group: <TestimonialGroup />,
         width: 440,
         gap: 16,
-        duration: 60,
-        cardsPerGroup: 5,
+        duration: 160,
+        cardsPerGroup: DUMMY_TESTIMONIALS.length,
       }}
     />
   );
@@ -37,13 +44,13 @@ const TestimonialScrollLeft = () => {
   return (
     <InfiniteScrollContainer
       rotation="Left"
-      copyGroupCount={2}
+      copyGroupCount={1}
       element={{
         group: <TestimonialGroup />,
         width: 440,
         gap: 16,
-        duration: 60,
-        cardsPerGroup: 5,
+        duration: 160,
+        cardsPerGroup: DUMMY_TESTIMONIALS.length,
       }}
     />
   );

@@ -3,7 +3,7 @@ import { WriteNow } from "./write-now";
 
 const HeroSection = () => {
   return (
-    <section className="mx-auto flex max-w-2xl flex-col gap-6 text-balance px-4 pt-32 text-center sm:pt-44">
+    <section className="mx-auto flex max-w-2xl flex-col gap-6 text-balance px-4 pt-36 text-center">
       <WriteNow />
       <h1
         style={{
