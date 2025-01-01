@@ -15,7 +15,7 @@ const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
       className,
       children,
       rippleColor = "rgb(var(--neutral-200))",
-      duration = "600ms",
+      duration = "500ms",
       onClick,
       ...props
     },
@@ -56,14 +56,14 @@ const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
     return (
       <button
         className={twMerge(
-          "relative flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-neutral-100 bg-gradient-to-tl from-primary-400 to-primary-500 px-5 text-center transition-all duration-300 ease-in-out focus:outline-none focus:ring-1 focus:ring-primary-500 focus:ring-opacity-50 active:scale-95 active:bg-primary-600",
+          "relative flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-neutral-600 bg-gradient-to-bl from-neutral-50 to-neutral-100 px-5 text-center antialiased transition-all duration-300 ease-in-out focus:outline-none focus:ring-1 focus:ring-primary-500 focus:ring-opacity-50 active:scale-95 active:bg-primary-600",
           className,
         )}
         onClick={handleClick}
         ref={ref}
         {...props}
       >
-        <div className="relative z-10 font-medium text-surface-50">
+        <div className="relative z-10 font-mono text-sm font-semibold tracking-tight text-neutral-700">
           {children}
         </div>
         <span className="pointer-events-none absolute inset-0">

@@ -38,14 +38,16 @@ const Header = () => {
           {links.map((link) => (
             <li
               key={link.name}
-              className="hidden text-sm tracking-wide sm:block"
+              className="hidden text-sm tracking-wide transition-all duration-500 hover:scale-105 hover:text-primary-700 active:scale-100 active:text-primary-900 sm:block"
             >
               <Link href={link.href}>{link.name}</Link>
             </li>
           ))}
         </ul>
 
-        <RippleButton>Get Started</RippleButton>
+        <RippleButton className="border-neutral-500 from-neutral-100 to-neutral-50 shadow shadow-neutral-300">
+          Get Started
+        </RippleButton>
       </nav>
     </header>
   );
