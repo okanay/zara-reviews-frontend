@@ -13,6 +13,13 @@
   button {
     @apply bg-transparent placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-950;
   }
+
+  /* search input icon reset */
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 :root {
