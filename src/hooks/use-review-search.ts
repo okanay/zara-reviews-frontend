@@ -41,15 +41,8 @@ export const useReviewSearch = () => {
     }
 
     setStatus("SEARCHING");
-    try {
-      const response = await fetch(`/api/search?q=${debouncedSearch}`);
-      if (!response.ok) throw new Error();
-
-      const data = await response.json();
-      setStatus(data.length > 0 ? "FOUND" : "NOT-FOUND");
-    } catch {
-      setStatus("ERROR");
-    }
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setStatus("FOUND");
   };
 
   useEffect(() => {
