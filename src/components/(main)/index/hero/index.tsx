@@ -1,9 +1,10 @@
 import { SearchInput } from "./search-input.tsx/index";
+import { SuggestionsButtons } from "./suggestion-buttons";
 import { WriteNow } from "./write-now";
 
 const HeroSection = () => {
   return (
-    <section className="mx-auto flex max-w-2xl flex-col gap-6 text-balance px-4 pt-36 text-center">
+    <section className="mx-auto flex max-w-2xl flex-col gap-6 text-balance px-4 pt-28 text-center">
       <WriteNow />
       <h1
         className="font-thin tracking-tight"
@@ -26,6 +27,7 @@ const HeroSection = () => {
         insights about Zara products. <span>Search</span> by product code or URL
         to start exploring.
       </p>
+      <SuggestionsButtons />
       <SearchInput />
     </section>
   );

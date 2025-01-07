@@ -1,25 +1,32 @@
-import { Quote, Star } from "lucide-react";
+import { Hash, Star } from "lucide-react";
 import Image from "next/image";
 
 type Props = {
-  name: string;
+  authorName: string;
+  productId: string;
   review: string;
   image: string;
   stars: number;
 };
 
-const TestimonialCard = ({ name, review, image, stars }: Props) => {
+const TestimonialCard = ({
+  authorName,
+  productId,
+  review,
+  image,
+  stars,
+}: Props) => {
   return (
     <div className="relative grid w-[440px] shrink-0 grid-cols-[8rem,_1fr] overflow-hidden rounded-lg border border-neutral-200">
       <Image
         src={image}
-        alt={`${name}'s review`}
+        alt={`${authorName}'s review`}
         width={120}
         height={120}
         className="size-full object-cover"
       />
       <div className="bg-neutral-50/5 p-4">
-        <p className="block font-serif text-lg">{name}</p>
+        <p className="block font-serif text-lg">{authorName}</p>
         <div className="mb-2 flex items-center gap-2">
           {[...Array(5)].map((_, index) => (
             <Star
@@ -33,7 +40,10 @@ const TestimonialCard = ({ name, review, image, stars }: Props) => {
           {review}
         </p>
       </div>
-      <Quote className="absolute right-2 top-2 size-5 stroke-primary-500" />
+      <div className="absolute right-2 top-2 flex h-fit w-fit items-center gap-0.5 stroke-primary-500 text-end text-xs">
+        <span>{productId}</span>
+        <Hash className="size-3.5 text-xs" />
+      </div>
     </div>
   );
 };
