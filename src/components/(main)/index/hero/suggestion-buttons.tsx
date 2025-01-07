@@ -36,9 +36,9 @@ export const SuggestionsButtons = () => {
 
   return (
     <div className="relative flex flex-col gap-4">
-      <div className="absolute -top-0.5 left-0 z-10 flex h-12 w-full items-center justify-between sm:hidden">
-        <div className="h-12 w-4 bg-gradient-to-r from-white to-transparent" />
-        <div className="h-12 w-4 bg-gradient-to-l from-white to-transparent" />
+      <div className="pointer-events-none absolute left-0 z-10 flex h-10 w-full items-center justify-between sm:hidden">
+        <div className="h-full w-4 bg-gradient-to-r from-white to-transparent" />
+        <div className="h-full w-4 bg-gradient-to-l from-white to-transparent" />
       </div>
 
       <div
