@@ -2,12 +2,14 @@
 
 import { useHorizontalWheelScroll } from "@/hooks/use-horizontal-wheel-scroll";
 import { useReviewStore } from "@/hooks/use-review-search";
+import { useEffect, useRef } from "react";
 
 export const SuggestionsButtons = () => {
-  const {
-    actions: { setSearch },
-  } = useReviewStore();
+  // prettier-ignore
+  const { actions: { setSearch }} = useReviewStore();
+
   const ref = useHorizontalWheelScroll();
+  const containerRef = useRef(null);
 
   const buttonLabels = [
     "SPRAY SWEATER",
@@ -17,11 +19,31 @@ export const SuggestionsButtons = () => {
     "FIT JEANS",
   ];
 
+  useEffect(() => {
+    const scrollToCenter = () => {
+      if (ref.current) {
+        const { scrollWidth, clientWidth } = ref.current;
+        ref.current.scrollLeft = (scrollWidth - clientWidth) / 2;
+      }
+    };
+    if (containerRef.current) {
+      const container = containerRef.current as HTMLDivElement;
+      container.style.visibility = "hidden";
+      scrollToCenter();
+      container.style.visibility = "visible";
+    }
+  }, [ref]);
+
   return (
-    <div className="flex flex-col gap-4">
+    <div className="relative flex flex-col gap-4">
+      <div className="absolute -top-0.5 left-0 z-10 flex h-12 w-full items-center justify-between sm:hidden">
+        <div className="h-12 w-4 bg-gradient-to-r from-white to-transparent" />
+        <div className="h-12 w-4 bg-gradient-to-l from-white to-transparent" />
+      </div>
+
       <div
         ref={ref}
-        className="-mb-2.5 flex items-center justify-center gap-4 overflow-x-auto"
+        className="relative -mb-2.5 flex items-center justify-center gap-4 overflow-x-auto"
         style={{ scrollbarWidth: "none" }}
       >
         {buttonLabels.map((label, index) => (
