@@ -2,8 +2,10 @@ import { RippleButton } from "@/components/globals/ripple-button";
 
 export const GetStarted = () => {
   return (
-    <RippleButton className="h-10 border-neutral-500 from-neutral-100 to-neutral-50 px-4 after:absolute after:inset-0 after:rounded-[inherit] after:shadow-[inset_0_1px_0px_rgb(var(--neutral-100)),inset_0_-2px_0px_rgb(var(--neutral-500))] sm:h-12 sm:px-6">
-      Get Started
+    <RippleButton className="relative flex h-11 cursor-pointer items-center justify-center overflow-hidden rounded-sm border border-neutral-500 bg-gradient-to-bl from-primary-400 to-primary-500 px-4 text-center transition-all duration-300 ease-in-out focus:outline-none focus:ring-1 focus:ring-neutral-600 focus:ring-opacity-50 active:scale-95 active:bg-primary-600 sm:h-12">
+      <span className="text-xs tracking-tight text-neutral-50 antialiased sm:text-sm">
+        Get Started
+      </span>
     </RippleButton>
   );
 };

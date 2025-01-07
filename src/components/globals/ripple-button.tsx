@@ -7,6 +7,7 @@ interface RippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rippleColor?: string;
   duration?: string;
+  textClassName?: string;
 }
 
 const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
@@ -14,6 +15,7 @@ const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
     {
       className,
       children,
+      textClassName,
       rippleColor = "rgb(var(--neutral-200))",
       duration = "500ms",
       onClick,
@@ -55,17 +57,19 @@ const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
 
     return (
       <button
-        className={twMerge(
-          "relative flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-neutral-600 bg-gradient-to-bl from-neutral-50 to-neutral-100 px-5 text-center antialiased transition-all duration-300 ease-in-out focus:outline-none focus:ring-1 focus:ring-primary-500 focus:ring-opacity-50 active:scale-95 active:bg-primary-600",
-          className,
-        )}
+        className={twMerge("", className)}
         onClick={handleClick}
         ref={ref}
         {...props}
       >
-        <div className="relative z-10 font-mono text-sm font-semibold tracking-tight text-neutral-700">
+        <span
+          className={twMerge(
+            "relative z-10 font-mono font-semibold",
+            textClassName,
+          )}
+        >
           {children}
-        </div>
+        </span>
         <span className="pointer-events-none absolute inset-0">
           {buttonRipples.map((ripple) => (
             <span

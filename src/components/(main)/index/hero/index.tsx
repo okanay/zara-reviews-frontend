@@ -14,18 +14,19 @@ const HeroSection = () => {
         }}
       >
         Find Your Perfect{" "}
-        <span className="font-serif tracking-tight text-neutral-800">Zara</span>{" "}
+        <span className="font-serif font-medium tracking-tight text-primary-500">
+          Zara
+        </span>{" "}
         Style
       </h1>
       <p
+        className="text-pretty font-light leading-relaxed tracking-wider text-neutral-950"
         style={{
           fontSize: "clamp(0.75rem, 0.3409rem + 2.0455vw, 1.2rem)",
         }}
-        className="text-pretty font-light leading-relaxed tracking-wider text-neutral-950"
       >
-        Get honest <span>reviews</span>, real photos, and <span>community</span>{" "}
-        insights about Zara products. <span>Search</span> by product code or URL
-        to start exploring.
+        Get honest reviews, real photos, and community insights about Zara
+        products. Search by product code or URL to start exploring.
       </p>
       <SuggestionsButtons />
       <SearchInput />

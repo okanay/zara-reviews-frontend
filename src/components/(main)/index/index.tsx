@@ -1,3 +1,4 @@
+import Blogs from "./blogs";
 import HeroSection from "./hero";
 import Testimonials from "./testimonials";
 
@@ -6,6 +7,7 @@ const IndexPage = () => {
     <main>
       <HeroSection />
       <Testimonials />
+      <Blogs />
     </main>
   );
 };

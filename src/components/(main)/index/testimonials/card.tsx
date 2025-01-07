@@ -17,7 +17,7 @@ const TestimonialCard = ({
   stars,
 }: Props) => {
   return (
-    <div className="relative grid w-[440px] shrink-0 grid-cols-[8rem,_1fr] overflow-hidden rounded-lg border border-neutral-200">
+    <div className="relative grid w-[440px] shrink-0 grid-cols-[8rem,_1fr] overflow-hidden rounded-sm border border-neutral-200">
       <Image
         src={image}
         alt={`${authorName}'s review`}

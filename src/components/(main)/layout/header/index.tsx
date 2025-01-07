@@ -4,9 +4,9 @@ import { BrandName } from "./brand-name";
 
 const Header = () => {
   return (
-    <header className="absolute left-[50%] my-2 w-full max-w-5xl -translate-x-1/2 px-4 py-2 font-sans">
-      <nav className="flex items-center justify-between">
-        <ul className="flex items-center gap-6">
+    <header className="absolute my-2 w-full py-2 font-sans">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4">
+        <ul className="flex items-center gap-8">
           <BrandName />
           <MainNavigationTabs />
         </ul>
