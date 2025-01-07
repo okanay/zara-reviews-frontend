@@ -28,11 +28,6 @@ export const SuggestionsButtons = () => {
 
   return (
     <div className="relative flex-col gap-4">
-      <div className="pointer-events-none absolute left-0 z-10 flex h-11 w-full items-center justify-between sm:hidden">
-        <div className="h-full w-6 bg-gradient-to-r from-white/90 to-white/10" />
-        <div className="h-full w-6 bg-gradient-to-l from-white/90 to-white/10" />
-      </div>
-
       <div
         ref={ref}
         className="relative -mb-2.5 flex items-center justify-center gap-4 overflow-x-auto"
