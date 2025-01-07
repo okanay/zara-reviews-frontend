@@ -3,6 +3,7 @@ import { DialogueProvider } from "@/components/dialogs";
 import { ToastManager } from "./toast";
 import { PropsWithChildren } from "react";
 import { MainFontWrapper } from "@/assets/fonts";
+import { LazyFramerMotion } from "./lazy-motion";
 
 export const MainProviders = async (props: PropsWithChildren) => {
   return (
@@ -13,7 +14,9 @@ export const MainProviders = async (props: PropsWithChildren) => {
       disableTransitionOnChange
     >
       <DialogueProvider>
-        <MainFontWrapper>{props.children}</MainFontWrapper>
+        <MainFontWrapper>
+          <LazyFramerMotion>{props.children}</LazyFramerMotion>
+        </MainFontWrapper>
         <ToastManager />
       </DialogueProvider>
     </ThemeProvider>
