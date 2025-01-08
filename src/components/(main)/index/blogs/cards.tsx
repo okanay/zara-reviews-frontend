@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
+import { useSwipe } from "@/hooks/use-swipe";
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export type BlogCardType = {
@@ -69,19 +70,16 @@ const MAX_SCREEN_SIZE = 1240;
 const CARD_WIDTH = 288;
 const CARD_GAP = 10;
 const STACK_GAP = 16;
-const MIN_SWIPE_DISTANCE = 50;
 
 export const BlogCards = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
   const [cards, setCards] = useState(BlogData);
   const [controlButtons, setControlButtons] = useState({
     left: true,
     right: false,
   });
 
+  // Kartları Sol Tarafa Doğru 1 Birim Kaydır
   const moveLeft = () => {
     // Bütün kartlar position 0'da ise hareket etme
     if (cards.every((card) => card.position === 0)) {
@@ -110,6 +108,7 @@ export const BlogCards = () => {
     );
   };
 
+  // Kartları Sağ Tarafa Doğru 1 Birim Kaydır
   const moveRight = () => {
     const maxPosition = cards.length - 1;
 
@@ -150,6 +149,7 @@ export const BlogCards = () => {
     });
   };
 
+  // Otomatik olarak Seçilen Kartı Görünür Yap
   const forceMove = (clickedIndex: number) => {
     const card = cards[clickedIndex];
 
@@ -172,30 +172,7 @@ export const BlogCards = () => {
     }
   };
 
-  const onTouchStart = (e: TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
-    const isRightSwipe = distance < -MIN_SWIPE_DISTANCE;
-
-    if (isLeftSwipe) {
-      moveLeft();
-    } else if (isRightSwipe) {
-      moveRight();
-    }
-  };
-
+  // Buton Disable Durumlarını Güncelle
   useEffect(() => {
     // Görünür kartları hesapla (position > 0 olanlar)
     const visibleCards = cards.filter((card) => card.position > 0);
@@ -220,20 +197,13 @@ export const BlogCards = () => {
     });
   }, [cards]);
 
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
-    element.addEventListener("touchstart", onTouchStart);
-    element.addEventListener("touchmove", onTouchMove);
-    element.addEventListener("touchend", onTouchEnd);
-
-    return () => {
-      element.removeEventListener("touchstart", onTouchStart);
-      element.removeEventListener("touchmove", onTouchMove);
-      element.removeEventListener("touchend", onTouchEnd);
-    };
-  }, [onTouchEnd, ref]);
+  // Swipe Kontrolleri
+  useSwipe({
+    ref,
+    onRight: () => moveRight(),
+    onLeft: () => moveLeft(),
+    minSwipeDistance: 50,
+  });
 
   return (
     <div ref={ref} className="relative mt-[4.25rem] md:mt-12">
