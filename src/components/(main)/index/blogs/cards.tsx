@@ -203,7 +203,7 @@ export const BlogCards = () => {
               width: CARD_WIDTH,
               height: "400px",
             }}
-            className="group absolute cursor-pointer overflow-hidden rounded-sm border border-neutral-400 bg-primary-200 shadow-lg"
+            className="group absolute cursor-pointer overflow-hidden rounded-sm border border-neutral-400 bg-primary-200/80 shadow-lg"
             onMouseEnter={() => forceMove(index)}
             key={blog.title + index}
           >
