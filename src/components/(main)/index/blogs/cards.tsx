@@ -167,8 +167,8 @@ export const BlogCards = () => {
   }, [cards]);
 
   return (
-    <div ref={ref} className="relative mt-12">
-      <div className="absolute -top-10 right-0 flex gap-4 md:-top-14 md:right-4">
+    <div ref={ref} className="relative mt-[4.25rem] md:mt-12">
+      <div className="left:0 absolute -top-12 right-auto flex gap-4 md:-top-14 md:left-auto md:right-4">
         <button
           onClick={moveLeft}
           disabled={!controlButtons.left}
