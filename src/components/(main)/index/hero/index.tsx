@@ -1,5 +1,5 @@
-import { SearchInput } from "./search-input.tsx/index";
-import { SuggestionsButtons } from "./suggestion-buttons";
+import { SearchInput } from "./search-input.tsx";
+import { SuggestionsButtons } from "./search-input.tsx/suggestion-buttons";
 import { WriteNow } from "./write-now";
 
 const HeroSection = () => {

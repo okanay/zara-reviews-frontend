@@ -1,12 +1,11 @@
 "use client";
-
-import useClickOutside from "@/hooks/use-click-outside";
-import { useReviewSearch, useReviewStore } from "@/hooks/use-review-search";
 import { AnimatePresence, motion } from "framer-motion";
 import { Loader2, Search, XCircle } from "lucide-react";
+import { MobileFixedClear } from "./mobile-fixed-clear";
+import { useReviewSearch, useReviewStore } from "@/hooks/use-review-search";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
 
 export const SearchInput = () => {
   const { search, status, actions } = useReviewStore();
@@ -25,7 +24,7 @@ export const SearchInput = () => {
         list="zara-search-suggestions"
         placeholder="Search..."
         onChange={(e) => setSearch(e.target.value)}
-        className="h-12 w-full appearance-none rounded-sm border border-neutral-200 bg-white px-9 text-sm outline-none transition-all duration-500 hover:border-primary-500 focus:border-primary-500 focus:ring-0"
+        className="h-12 w-full appearance-none rounded-sm border border-neutral-200 bg-white px-9 text-base outline-none transition-all duration-500 hover:border-primary-500 focus:border-primary-500 focus:ring-0"
       />
 
       {/*  Search or Clear button*/}
@@ -39,23 +38,24 @@ export const SearchInput = () => {
           <StatusMessage />
         </AnimatePresence>
       </div>
+      <MobileFixedClear />
     </div>
   );
 };
 
 const FoundResults = () => {
-  // prettier-ignore
-  const { status, actions : { reset } } = useReviewStore();
-  const ref = useClickOutside<HTMLDivElement>(reset, status === "FOUND");
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const top = Number(ref.current?.getBoundingClientRect().top) - 200;
-
-    window.scrollTo({ top, behavior: "smooth" });
-  }, [ref]);
-
+    ref.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "end",
+    });
+  }, []);
   return (
     <motion.div
+      id="search-results"
       ref={ref}
       initial={{ opacity: 0, y: -10 }}
       animate={{
