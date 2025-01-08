@@ -62,8 +62,8 @@ const FoundResults = () => {
   useEffect(() => {
     ref.current?.scrollIntoView({
       behavior: "smooth",
-      block: "start",
-      inline: "end",
+      block: "center",
+      inline: "center",
     });
   }, [ref]);
 
@@ -78,9 +78,8 @@ const FoundResults = () => {
         transition: { duration: 0.3, type: "spring" },
       }}
       exit={{ opacity: 0, y: 0, height: 0 }}
-      key="found"
       style={{ scrollbarWidth: "none" }}
-      className="relative z-20 mt-3 grid max-h-[520px] grid-cols-[repeat(auto-fit,minmax(280px,1fr))] overflow-hidden overflow-y-auto rounded-sm border border-neutral-200 bg-white object-top text-start text-sm text-neutral-500"
+      className="relative z-20 mt-3 grid max-h-[520px] scroll-m-64 grid-cols-[repeat(auto-fit,minmax(280px,1fr))] overflow-hidden overflow-y-auto rounded-sm border border-neutral-200 bg-white object-top text-start text-sm text-neutral-500"
     >
       <Link href="#" className="group relative h-full w-full">
         <div className="pointer-events-none absolute inset-0 transition-colors duration-300 group-hover:bg-primary-500/10" />

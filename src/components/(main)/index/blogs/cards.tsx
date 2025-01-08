@@ -167,20 +167,20 @@ export const BlogCards = () => {
 
   return (
     <div className="relative mt-12">
-      <div className="absolute -top-16 right-0 flex gap-4">
+      <div className="absolute -top-10 right-0 flex gap-4 md:-top-14 md:right-4">
         <button
           onClick={moveLeft}
           disabled={!controlButtons.left}
           className="group rounded-full border border-neutral-400 bg-primary-300 p-2 shadow transition-[opacity_transform] duration-300 ease-out hover:opacity-75 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:bg-neutral-200"
         >
-          <ChevronLeft className="size-6 translate-x-[-1px] stroke-primary-50 transition-colors duration-100 group-disabled:stroke-primary-800" />
+          <ChevronLeft className="size-4 translate-x-[-1px] stroke-primary-50 transition-colors duration-100 group-disabled:stroke-primary-800 md:size-6" />
         </button>
         <button
           onClick={moveRight}
           disabled={!controlButtons.right}
           className="group rounded-full border border-neutral-400 bg-primary-300 p-2 shadow transition-[opacity_transform] duration-300 ease-out hover:opacity-75 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:bg-neutral-200"
         >
-          <ChevronRight className="size-6 translate-x-[1px] stroke-primary-50 transition-colors duration-100 group-disabled:stroke-primary-800" />
+          <ChevronRight className="size-4 translate-x-[1px] stroke-primary-50 transition-colors duration-100 group-disabled:stroke-primary-800 md:size-6" />
         </button>
       </div>
 
