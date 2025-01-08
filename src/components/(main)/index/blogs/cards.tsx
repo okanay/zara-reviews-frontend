@@ -92,7 +92,7 @@ export const BlogCards = () => {
     const stackedWidth =
       CARD_WIDTH +
       (cards.filter((card) => card.position === 0).length - 1) * STACK_GAP;
-    const totalUsedWidth = stackedWidth + totalVisibleWidth + CARD_WIDTH;
+    const totalUsedWidth = stackedWidth + totalVisibleWidth;
     const currentScreenSize = Math.min(window.innerWidth, MAX_SCREEN_SIZE);
 
     // Tüm kartlar ekrana sığıyorsa hareket etme
@@ -181,7 +181,7 @@ export const BlogCards = () => {
     // Genişlik hesaplamaları
     const totalVisibleWidth = visibleCards.length * (CARD_WIDTH + CARD_GAP);
     const stackedWidth = CARD_WIDTH + (stackedCards.length - 1) * STACK_GAP;
-    const totalUsedWidth = stackedWidth + totalVisibleWidth + CARD_WIDTH;
+    const totalUsedWidth = stackedWidth + totalVisibleWidth;
 
     const currentScreenSize = Math.min(window.innerWidth, MAX_SCREEN_SIZE);
     const maxPosition = cards.length - 1;
