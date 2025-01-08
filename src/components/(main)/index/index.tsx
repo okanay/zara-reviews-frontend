@@ -4,7 +4,7 @@ import Testimonials from "./testimonials";
 
 const IndexPage = () => {
   return (
-    <main>
+    <main className="space-y-12 pb-12 md:space-y-16 md:pb-16">
       <HeroSection />
       <Testimonials />
       <Blogs />

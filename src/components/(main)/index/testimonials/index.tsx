@@ -4,7 +4,7 @@ import { TESTIMONIALS } from "@/constants/testimonials";
 
 const Testimonials = () => {
   return (
-    <section className="relative mt-20 flex max-w-[100vw] flex-col gap-4 overflow-hidden">
+    <section className="relative flex max-w-[100vw] flex-col gap-4 overflow-hidden">
       <TestimonialScrollRight />
       <TestimonialScrollLeft />
     </section>

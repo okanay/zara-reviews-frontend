@@ -5,9 +5,15 @@ import { BlogCards } from "./cards";
 
 const Blogs = () => {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 text-primary-800">
+    <section className="mx-auto max-w-7xl px-4 text-primary-800">
       <div className="flex flex-wrap items-start justify-between gap-x-8 gap-y-4 text-left">
-        <h2 className="flex flex-col font-serif text-2xl sm:text-3xl lg:text-5xl">
+        <h2
+          className="flex flex-col font-serif"
+          style={{
+            fontSize: "clamp(1.5rem, 0.8182rem + 3.4091vw, 3rem)",
+            lineHeight: "clamp(1.5rem, 0.8182rem + 3.4091vw, 3rem)",
+          }}
+        >
           <span>Learn more about Zara</span>
           <span className="text-primary-500">trending products and more.</span>
         </h2>
