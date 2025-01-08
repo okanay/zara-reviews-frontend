@@ -11,11 +11,11 @@ export const MobileFixedClear = () => {
 
   return (
     <button
-      className={`${status === "FOUND" ? "translate-y-0" : "translate-y-full"} fixed bottom-0 left-0 z-20 flex w-full items-center justify-center gap-2 border-t border-neutral-200 bg-primary-400 p-2 text-center shadow-md transition-transform duration-300 ease-out focus:outline-none focus:ring-0 sm:hidden`}
+      className={`${status === "FOUND" ? "translate-y-0" : "translate-y-full"} fixed bottom-0 left-0 z-20 flex w-full items-center justify-center gap-2 border-t border-neutral-200 bg-primary-300/70 p-4 text-center shadow-md backdrop-blur transition-transform duration-300 ease-out focus:outline-none focus:ring-0 sm:hidden`}
       onClick={reset}
     >
-      <XCircle className="size-4 stroke-neutral-50" />
-      <span className="text-sm font-semibold tracking-wide text-neutral-50">
+      <XCircle className="size-4 stroke-primary-50" />
+      <span className="font-semibold tracking-wide text-primary-50">
         Clear Search Result
       </span>
     </button>
