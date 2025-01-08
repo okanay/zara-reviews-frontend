@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -71,6 +71,7 @@ const CARD_GAP = 10;
 const STACK_GAP = 16;
 
 export const BlogCards = () => {
+  const ref = useRef<HTMLDivElement>(null);
   const [cards, setCards] = useState(BlogData);
   const [controlButtons, setControlButtons] = useState({
     left: true,
@@ -166,7 +167,7 @@ export const BlogCards = () => {
   }, [cards]);
 
   return (
-    <div className="relative mt-12">
+    <div ref={ref} className="relative mt-12">
       <div className="absolute -top-10 right-0 flex gap-4 md:-top-14 md:right-4">
         <button
           onClick={moveLeft}
@@ -203,7 +204,7 @@ export const BlogCards = () => {
               width: CARD_WIDTH,
               height: "400px",
             }}
-            className="group absolute cursor-pointer overflow-hidden rounded-sm border border-neutral-400 bg-primary-200/80 shadow-lg"
+            className="group absolute cursor-pointer overflow-hidden rounded-sm border border-neutral-400 bg-primary-200 shadow-lg"
             onMouseEnter={() => forceMove(index)}
             key={blog.title + index}
           >
