@@ -42,7 +42,7 @@ const TestimonialCard = ({
       </div>
       <div className="absolute right-2 top-2 flex h-fit w-fit items-center gap-0.5 stroke-primary-500 text-end text-xs">
         <span>{productId}</span>
-        <Hash className="size-3.5 text-xs" />
+        <Hash className="size-3 stroke-primary-500 text-xs" />
       </div>
     </div>
   );

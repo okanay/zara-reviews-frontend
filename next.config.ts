@@ -21,6 +21,11 @@ const nextConfig: NextConfig = {
         hostname: "static.zara.net",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
     ],
   },
 };
