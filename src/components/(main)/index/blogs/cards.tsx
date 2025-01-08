@@ -67,8 +67,8 @@ const BlogData: BlogCardType[] = [
 
 const MAX_SCREEN_SIZE = 1240;
 const CARD_WIDTH = 288;
-const CARD_GAP = 6;
-const STACK_GAP = 24;
+const CARD_GAP = 10;
+const STACK_GAP = 16;
 
 export const BlogCards = () => {
   const [cards, setCards] = useState(BlogData);
