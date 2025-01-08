@@ -28,7 +28,7 @@ export const MainNavigationTabs = () => {
       {links.map((link) => (
         <li
           key={link.name}
-          className="hidden font-mono text-sm tracking-wide transition-all duration-500 hover:scale-105 hover:text-primary-700 active:scale-100 active:text-primary-900 sm:block"
+          className="hidden font-sans text-sm tracking-wide transition-all duration-500 hover:scale-105 hover:text-primary-700 active:scale-100 active:text-primary-900 sm:block"
         >
           <Link href={link.href}>{link.name}</Link>
         </li>

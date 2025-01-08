@@ -9,7 +9,7 @@ export const WriteNow = () => {
         rippleColor="rgb(var(--neutral-200))"
       >
         <span className="flex items-center justify-center gap-2">
-          <span className="font-mono font-semibold tracking-tight">
+          <span className="font-sans font-semibold tracking-tight">
             Write Now
           </span>
           <Pen className="size-3 stroke-primary-600" />

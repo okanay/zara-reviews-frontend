@@ -3,9 +3,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Loader2, Search, XCircle } from "lucide-react";
 import { MobileFixedClear } from "./mobile-fixed-clear";
 import { useReviewSearch, useReviewStore } from "@/hooks/use-review-search";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import useClickOutside from "@/hooks/use-click-outside";
 
 export const SearchInput = () => {
   const { search, status, actions } = useReviewStore();
@@ -44,7 +45,19 @@ export const SearchInput = () => {
 };
 
 const FoundResults = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const {
+    status,
+    actions: { reset },
+  } = useReviewStore();
+
+  const largeScreenOutsideClickControl =
+    window.innerWidth > 640 && status === "FOUND";
+
+  const ref = useClickOutside<HTMLDivElement>(() => {
+    if (largeScreenOutsideClickControl) {
+      reset();
+    }
+  }, largeScreenOutsideClickControl);
 
   useEffect(() => {
     ref.current?.scrollIntoView({
@@ -52,7 +65,8 @@ const FoundResults = () => {
       block: "start",
       inline: "end",
     });
-  }, []);
+  }, [ref]);
+
   return (
     <motion.div
       id="search-results"
