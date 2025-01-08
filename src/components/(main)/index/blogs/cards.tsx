@@ -69,9 +69,13 @@ const MAX_SCREEN_SIZE = 1240;
 const CARD_WIDTH = 288;
 const CARD_GAP = 10;
 const STACK_GAP = 16;
+const MIN_SWIPE_DISTANCE = 50;
 
 export const BlogCards = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
   const [cards, setCards] = useState(BlogData);
   const [controlButtons, setControlButtons] = useState({
     left: true,
@@ -79,6 +83,25 @@ export const BlogCards = () => {
   });
 
   const moveLeft = () => {
+    // Bütün kartlar position 0'da ise hareket etme
+    if (cards.every((card) => card.position === 0)) {
+      return;
+    }
+
+    // Görünür kartları hesapla (position > 0 olanlar)
+    const visibleCards = cards.filter((card) => card.position > 0);
+    const totalVisibleWidth = visibleCards.length * (CARD_WIDTH + CARD_GAP);
+    const stackedWidth =
+      CARD_WIDTH +
+      (cards.filter((card) => card.position === 0).length - 1) * STACK_GAP;
+    const totalUsedWidth = stackedWidth + totalVisibleWidth + CARD_WIDTH;
+    const currentScreenSize = Math.min(window.innerWidth, MAX_SCREEN_SIZE);
+
+    // Tüm kartlar ekrana sığıyorsa hareket etme
+    if (totalUsedWidth <= currentScreenSize) {
+      return;
+    }
+
     setCards((prevCards) =>
       prevCards.map((card) => ({
         ...card,
@@ -88,6 +111,13 @@ export const BlogCards = () => {
   };
 
   const moveRight = () => {
+    const maxPosition = cards.length - 1;
+
+    // Herhangi bir kart maximum pozisyonda ise hareket etme
+    if (cards.some((card) => card.position >= maxPosition)) {
+      return;
+    }
+
     setCards((prevCards) => {
       const zeroPositionCards = prevCards.filter((card) => card.position === 0);
 
@@ -142,6 +172,30 @@ export const BlogCards = () => {
     }
   };
 
+  const onTouchStart = (e: TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
+    const isRightSwipe = distance < -MIN_SWIPE_DISTANCE;
+
+    if (isLeftSwipe && controlButtons.right) {
+      moveLeft();
+    } else if (isRightSwipe && controlButtons.left) {
+      moveRight();
+    }
+  };
+
   useEffect(() => {
     // Görünür kartları hesapla (position > 0 olanlar)
     const visibleCards = cards.filter((card) => card.position > 0);
@@ -166,18 +220,33 @@ export const BlogCards = () => {
     });
   }, [cards]);
 
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    element.addEventListener("touchstart", onTouchStart);
+    element.addEventListener("touchmove", onTouchMove);
+    element.addEventListener("touchend", onTouchEnd);
+
+    return () => {
+      element.removeEventListener("touchstart", onTouchStart);
+      element.removeEventListener("touchmove", onTouchMove);
+      element.removeEventListener("touchend", onTouchEnd);
+    };
+  }, [onTouchEnd, ref]);
+
   return (
     <div ref={ref} className="relative mt-[4.25rem] md:mt-12">
       <div className="left:0 absolute -top-12 right-auto flex gap-4 md:-top-14 md:left-auto md:right-4">
         <button
-          onClick={moveLeft}
+          onPointerDown={moveLeft}
           disabled={!controlButtons.left}
           className="group rounded-full border border-neutral-400 bg-primary-300 p-2 shadow transition-[opacity_transform] duration-300 ease-out hover:opacity-75 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:bg-neutral-200"
         >
           <ChevronLeft className="size-4 translate-x-[-1px] stroke-primary-50 transition-colors duration-100 group-disabled:stroke-primary-800 md:size-6" />
         </button>
         <button
-          onClick={moveRight}
+          onPointerDown={moveRight}
           disabled={!controlButtons.right}
           className="group rounded-full border border-neutral-400 bg-primary-300 p-2 shadow transition-[opacity_transform] duration-300 ease-out hover:opacity-75 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:bg-neutral-200"
         >
