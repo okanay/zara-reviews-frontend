@@ -189,9 +189,9 @@ export const BlogCards = () => {
     const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
     const isRightSwipe = distance < -MIN_SWIPE_DISTANCE;
 
-    if (isLeftSwipe && controlButtons.right) {
+    if (isLeftSwipe) {
       moveLeft();
-    } else if (isRightSwipe && controlButtons.left) {
+    } else if (isRightSwipe) {
       moveRight();
     }
   };
