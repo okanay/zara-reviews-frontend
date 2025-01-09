@@ -1,6 +1,7 @@
+import React, { PropsWithChildren } from "react";
+
 import { Noto_Serif } from "next/font/google";
 import { Geist, Geist_Mono } from "next/font/google";
-import React, { PropsWithChildren } from "react";
 
 const serif = Noto_Serif({
   subsets: ["latin-ext"],
