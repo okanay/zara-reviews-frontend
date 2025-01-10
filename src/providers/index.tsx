@@ -13,12 +13,12 @@ export const MainProviders = async (props: PropsWithChildren) => {
       enableSystem
       disableTransitionOnChange
     >
-      <ModalProvider>
-        <MainFontWrapper>
-          <LazyFramerMotion>{props.children}</LazyFramerMotion>
-        </MainFontWrapper>
-        <ToastManager />
-      </ModalProvider>
+      <MainFontWrapper>
+        <LazyFramerMotion>
+          <ModalProvider>{props.children}</ModalProvider>
+        </LazyFramerMotion>
+      </MainFontWrapper>
+      <ToastManager />
     </ThemeProvider>
   );
 };

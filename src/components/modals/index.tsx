@@ -1,8 +1,9 @@
 "use client";
 
-import { useModal } from "@/components/modals/use-modal";
+import { useModal } from "@/stores/use-modal-store";
 import { twMerge } from "tailwind-merge";
-import { ImageGalleryModal } from "./image-gallery-modal";
+import { ImageGalleryModal } from "./image-gallery";
+import { ImageGalleryInit } from "./image-gallery/init";
 
 type Props = {
   children: React.ReactNode;
@@ -21,7 +22,7 @@ export const ModalProvider = ({ children }: Props) => {
   };
 
   return (
-    <>
+    <ImageGalleryInit>
       <div
         className={twMerge(
           "absolute left-0 top-0 h-screen w-full overflow-y-auto",
@@ -31,6 +32,6 @@ export const ModalProvider = ({ children }: Props) => {
         {renderModal()}
       </div>
       {children}
-    </>
+    </ImageGalleryInit>
   );
 };

@@ -1,22 +1,23 @@
 "use client";
 
-import { useImageGallery } from "@/stores/use-image-gallery";
-import { useModal } from "./use-modal";
 import { useCallback, useEffect } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
+import { useImageGallery } from "./use-image-gallery";
+import useClickOutside from "@/hooks/use-click-outside";
 
 export const ImageGalleryModal = () => {
-  // prettier-ignore
-  const { images, currentIndex, closeGallery, nextImage, previousImage } = useImageGallery();
-  const modal = useModal();
+  const {
+    images,
+    currentIndex,
+    closeGallery,
+    nextImage,
+    previousImage,
+    isOpen,
+  } = useImageGallery();
+  const ref = useClickOutside<HTMLImageElement>(closeGallery, isOpen);
 
   const currentImage = images[currentIndex];
-
-  const closeModal = useCallback(() => {
-    modal.closeModal();
-    closeGallery();
-  }, [modal, closeGallery]);
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
@@ -28,13 +29,13 @@ export const ImageGalleryModal = () => {
           nextImage();
           break;
         case "Escape":
-          closeModal();
+          closeGallery();
           break;
         default:
           break;
       }
     },
-    [nextImage, previousImage, closeModal],
+    [nextImage, previousImage, closeGallery],
   );
 
   useEffect(() => {
@@ -48,11 +49,11 @@ export const ImageGalleryModal = () => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-950">
       {/* Close button */}
       <button
-        onClick={closeModal}
-        className="absolute right-6 top-6 z-50 rounded-full border border-neutral-400 bg-neutral-50 p-px transition-opacity hover:opacity-100 md:opacity-50"
+        onClick={closeGallery}
+        className="absolute right-3 top-3 z-50 rounded-full border border-neutral-400 bg-neutral-50 p-px transition-opacity hover:opacity-100 sm:right-6 sm:top-6 md:opacity-50"
         aria-label="Close gallery"
       >
-        <X className="size-8 stroke-neutral-950" />
+        <X className="size-6 stroke-neutral-950 sm:size-8" />
       </button>
 
       {/* Main content wrapper */}
@@ -60,6 +61,7 @@ export const ImageGalleryModal = () => {
         {/* Image container with max dimensions */}
         <div className="relative h-[85vh] w-full max-w-[1200px]">
           <Image
+            ref={ref}
             src={currentImage}
             alt={`Image ${currentIndex + 1}`}
             fill
@@ -75,29 +77,29 @@ export const ImageGalleryModal = () => {
           <>
             <button
               onClick={previousImage}
-              className="group absolute left-4 flex h-full w-16 items-center justify-start px-2 transition-opacity hover:opacity-100 md:opacity-50"
+              className="group absolute left-1 flex h-full w-16 items-center justify-start px-2 transition-opacity hover:opacity-100 sm:left-4 md:opacity-50"
               aria-label="Previous image"
             >
-              <ChevronLeft className="size-8 stroke-neutral-50 transition-colors group-hover:text-white" />
+              <ChevronLeft className="size-6 stroke-neutral-50 transition-colors group-hover:text-white sm:size-8" />
             </button>
             <button
               onClick={nextImage}
-              className="group absolute right-4 flex h-full w-16 items-center justify-end px-2 transition-opacity hover:opacity-100 md:opacity-50"
+              className="group absolute right-1 flex h-full w-16 items-center justify-end px-2 transition-opacity hover:opacity-100 sm:right-4 md:opacity-50"
               aria-label="Next image"
             >
-              <ChevronRight className="size-8 stroke-neutral-50 transition-colors group-hover:text-white" />
+              <ChevronRight className="size-6 stroke-neutral-50 transition-colors group-hover:text-white sm:size-8" />
             </button>
           </>
         )}
 
         {/* Image counter - Minimal design */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-neutral-400">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-sm text-neutral-400 sm:bottom-6">
           {currentIndex + 1} / {images.length}
         </div>
       </div>
 
       {/* Keyboard navigation hint - Optional */}
-      <div className="absolute bottom-6 left-6 text-xs text-neutral-500">
+      <div className="absolute bottom-6 left-6 hidden text-xs text-neutral-500 sm:block">
         Use arrow keys to navigate
       </div>
     </div>
