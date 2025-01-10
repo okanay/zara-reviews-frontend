@@ -1,6 +1,6 @@
 import { AuroraBackground } from "@/components/globals/background";
-import Footer from "../footer";
-import Header from "../header";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default function FeedLayout({ children }: LayoutProps) {
   return (

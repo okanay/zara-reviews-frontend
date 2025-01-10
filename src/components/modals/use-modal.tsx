@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type ModalType = "idle";
+export type ModalType = "idle" | "image-gallery";
 
 interface ModalStore {
   modal: ModalType;

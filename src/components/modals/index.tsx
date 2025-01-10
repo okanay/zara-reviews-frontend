@@ -1,17 +1,20 @@
 "use client";
 
-import { useModal } from "@/components/dialogs/use-modal";
+import { useModal } from "@/components/modals/use-modal";
 import { twMerge } from "tailwind-merge";
+import { ImageGalleryModal } from "./image-gallery-modal";
 
 type Props = {
   children: React.ReactNode;
 };
 
-export const DialogueProvider = ({ children }: Props) => {
+export const ModalProvider = ({ children }: Props) => {
   const { modal } = useModal();
 
-  const renderDialog = () => {
+  const renderModal = () => {
     switch (modal) {
+      case "image-gallery":
+        return <ImageGalleryModal />;
       default:
         return null;
     }
@@ -25,7 +28,7 @@ export const DialogueProvider = ({ children }: Props) => {
           modal === "idle" ? "hidden" : "block",
         )}
       >
-        {renderDialog()}
+        {renderModal()}
       </div>
       {children}
     </>

@@ -1,5 +1,5 @@
 import { ThemeProvider } from "next-themes";
-import { DialogueProvider } from "@/components/dialogs";
+import { ModalProvider } from "@/components/modals";
 import { ToastManager } from "./toast";
 import { PropsWithChildren } from "react";
 import { MainFontWrapper } from "@/assets/fonts";
@@ -13,12 +13,12 @@ export const MainProviders = async (props: PropsWithChildren) => {
       enableSystem
       disableTransitionOnChange
     >
-      <DialogueProvider>
+      <ModalProvider>
         <MainFontWrapper>
           <LazyFramerMotion>{props.children}</LazyFramerMotion>
         </MainFontWrapper>
         <ToastManager />
-      </DialogueProvider>
+      </ModalProvider>
     </ThemeProvider>
   );
 };
