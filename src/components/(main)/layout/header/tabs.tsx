@@ -9,8 +9,8 @@ const links = [
     // isActive: activeLink === "/",
   },
   {
-    name: "Trending",
-    href: "/trending",
+    name: "Feed",
+    href: "/feed",
     // isActive: activeLink === "/trending",
   },
   {
