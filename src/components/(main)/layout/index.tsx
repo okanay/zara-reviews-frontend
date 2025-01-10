@@ -1,6 +1,6 @@
-import Footer from "./footer";
-import Header from "./header";
-import { AuroraBackground } from "./animations/background";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import { AuroraBackground } from "@/components/globals/background";
 
 export default function MainLayout({ children }: LayoutProps) {
   return (

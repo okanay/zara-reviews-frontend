@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable */
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { createStore, StoreApi, useStore } from "zustand";
@@ -50,8 +51,10 @@ declare global {
       url: string;
     };
     comment: string;
+    images?: string[];
     stars: number;
     likes: number;
+    disLikes: number;
     helpful: number;
     createdAt: string;
   };
