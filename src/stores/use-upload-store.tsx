@@ -44,16 +44,6 @@ const CONFIG = {
   TIMEOUT_DURATION: 60, // 1 minute
 };
 
-// File validation helpers
-const isValidFileSize = (file: File): boolean => {
-  const MB = 1024 * 1024;
-  return file.size <= CONFIG.MAX_FILE_SIZE * MB;
-};
-
-const isValidFileType = (file: File): boolean => {
-  return CONFIG.ALLOWED_TYPES.includes(file.type);
-};
-
 export const useUploadStore = create<UploadStore>((set, get) => ({
   files: [],
   uploading: false,
@@ -220,4 +210,14 @@ const getErrorMessage = (error: any): string => {
   return error.code === "ECONNABORTED"
     ? "Upload timed out. Please try again."
     : "Upload failed due to a network error. Check your connection.";
+};
+
+// File validation helpers
+const isValidFileSize = (file: File): boolean => {
+  const MB = 1024 * 1024;
+  return file.size <= CONFIG.MAX_FILE_SIZE * MB;
+};
+
+const isValidFileType = (file: File): boolean => {
+  return CONFIG.ALLOWED_TYPES.includes(file.type);
 };

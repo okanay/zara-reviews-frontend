@@ -1,4 +1,5 @@
 export const DummyPosts: Post[] = [
+  // Emily Chee's review
   {
     id: "1",
     user: {
@@ -21,15 +22,18 @@ export const DummyPosts: Post[] = [
     comment:
       "Perfect for hot weather! The linen blend keeps you cool and the oversized fit is very flattering. I normally wear S but sized down to XS for this one.",
     stars: 5,
-    likes: 0,
-    disLikes: 0,
-    helpful: 10,
+    userInteraction: "IDLE",
+    metrics: {
+      likes: 0,
+      dislikes: 0,
+    },
     createdAt: "5h",
   },
+  // Michael Brown's review
   {
     id: "2",
     user: {
-      name: "John Doe",
+      name: "Michael Brown",
       avatar: "https://picsum.photos/40/40?random=3",
       details: {
         size: "L",
@@ -48,11 +52,14 @@ export const DummyPosts: Post[] = [
     comment:
       "Great fit and very comfortable. The stretch makes it easy to move around in these jeans.",
     stars: 4,
-    likes: 5,
-    disLikes: 1,
-    helpful: 8,
+    userInteraction: "LIKED",
+    metrics: {
+      likes: 5,
+      dislikes: 1,
+    },
     createdAt: "2d",
   },
+  // Jane Smith's review
   {
     id: "3",
     user: {
@@ -75,11 +82,14 @@ export const DummyPosts: Post[] = [
     comment:
       "Very comfortable and soft. I bought it in three different colors!",
     stars: 5,
-    likes: 12,
-    disLikes: 0,
-    helpful: 15,
+    userInteraction: "LIKED",
+    metrics: {
+      likes: 12,
+      dislikes: 0,
+    },
     createdAt: "1w",
   },
+  // Alice Johnson's review
   {
     id: "4",
     user: {
@@ -101,9 +111,11 @@ export const DummyPosts: Post[] = [
     },
     comment: "Keeps me warm and looks great. The wool is not itchy at all.",
     stars: 4,
-    likes: 7,
-    disLikes: 2,
-    helpful: 9,
+    userInteraction: "DISLIKED",
+    metrics: {
+      likes: 7,
+      dislikes: 2,
+    },
     createdAt: "3d",
   },
 ];

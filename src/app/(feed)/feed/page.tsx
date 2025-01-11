@@ -1,11 +1,12 @@
 import FeedPage from "@/components/(feed)";
 import { DummyPosts } from "@/constants/posts";
-import { PostStoreProvider } from "@/stores/use-post-store";
+import { PostStoreInitUser, PostStoreProvider } from "@/stores/use-post-store";
 
-export default function Home() {
+export default async function Home() {
   return (
     <PostStoreProvider initial={DummyPosts}>
       <FeedPage />
+      <PostStoreInitUser />
     </PostStoreProvider>
   );
 }
