@@ -119,8 +119,8 @@ interface StateFields {
 interface ActionFields {
   setPosts: (posts: Post[]) => void;
   setUserData: (user: StateFields["user"]) => void;
-  createPost: (post: NewPost) => Promise<void>;
   refreshPosts: () => void;
+  createPost: (post: NewPost) => Promise<void>;
   setInteraction: (postId: string, interaction: "LIKED" | "DISLIKED") => void;
 }
 
